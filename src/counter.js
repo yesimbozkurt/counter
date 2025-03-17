@@ -15,3 +15,47 @@
 // 	•	Butonlara basıldığında animasyon veya renk değişimi gibi görsel efektler eklenebilir.
 
 // Bunu geliştirmek istersen, belirli bir özellik eklemek ister misin? 🚀
+import "./style.css";
+const counter = document.querySelector("#counter");
+const increaseBtn = document.querySelector("#increase");
+const decreaseBtn = document.querySelector("#decrease");
+const resetBtn = document.querySelector("#reset");
+
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, 0)}`;
+}
+
+
+// 1. durum
+let count = 0;
+counter.textContent = count;
+
+// 2. durum
+increaseBtn.addEventListener("click", e => {
+    count++;
+    counter.textContent = count;
+    if (count > 0) {
+        counter.style.color = getRandomHexColor();
+    }
+})
+
+decreaseBtn.addEventListener("click", e => {
+    count--;
+    counter.textContent = count;
+    if (count < 0) {
+        count = 0;
+        counter.textContent = count;
+        counter.style.color = "black";
+    }
+     if (count > 0) {
+        counter.style.color = getRandomHexColor();
+    }
+})
+
+resetBtn.addEventListener("click", e => {
+    count = 0;
+    counter.textContent = count;
+    counter.style.color = "black";
+})
