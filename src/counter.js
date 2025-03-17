@@ -20,6 +20,9 @@ const counter = document.querySelector("#counter");
 const increaseBtn = document.querySelector("#increase");
 const decreaseBtn = document.querySelector("#decrease");
 const resetBtn = document.querySelector("#reset");
+document.addEventListener("dblclick", (event) => {
+    event.preventDefault();
+});
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
