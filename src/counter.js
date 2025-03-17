@@ -45,16 +45,19 @@ increaseBtn.addEventListener("click", e => {
 })
 
 decreaseBtn.addEventListener("click", e => {
-    count--;
-    counter.textContent = count;
-    if (count < 0) {
+    // count--;
+    // counter.textContent = count;
+    if (count > 0) {
+        count--;
+        counter.textContent = count;
+        counter.style.color = getRandomHexColor();
+    }
+    if (count <= 0) {
         count = 0;
         counter.textContent = count;
         counter.style.color = "black";
     }
-     if (count > 0) {
-        counter.style.color = getRandomHexColor();
-    }
+
 })
 
 resetBtn.addEventListener("click", e => {
